@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Урок 3 — Тестирование (Оценочный тест) | TeachPro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="navbar">
+  <h2 class="gradient-text">TeachPro</h2>
+  <div>
+    <a href="course.html">К курсу</a>
+    <a href="lesson1.html">Урок 1</a>
+    <a href="lesson2.html">Урок 2</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
+<section class="lesson-page">
+  <h1 class="gradient-text">Урок 3 — Итоговый тест по курсу</h1>
+  <p class="course-subtitle">Тест проверяет знание ключевых положений курса и умение применить их на практике. Время: 45–60 минут.</p>
+
+  <div class="lesson-content">
+    <h2 class="gradient-text">Инструкции</h2>
+    <ul>
+      <li>Тест состоит из автоматических и ручных вопросов. Автоматические оцениваются сразу, ручные — по рубрике (вводите баллы сами или попросите преподавателя).</li>
+      <li>Итоговый балл — сумма автоматических частей + введённые учителем баллы по открытым вопросам.</li>
+      <li>Нажмите "Проверить тест" для мгновенной оценки автоматических частей.</li>
+    </ul>
+
+    <form id="exam-form" onsubmit="event.preventDefault(); gradeExam();">
+
+      <h3>Раздел A — Проверка знаний (автоматически)</h3>
+
+      <ol>
+        <li>
+          <p><strong>1.</strong> Что из перечисленного — принцип активного обучения?</p>
+          <label><input type="radio" name="q1" value="a"> Только лекционная подача</label><br>
+          <label><input type="radio" name="q1" value="b"> Вовлечение учащихся в деятельность</label><br>
+          <label><input type="radio" name="q1" value="c"> Отсутствие обратной связи</label>
+          <div class="q-feedback" id="f1"></div>
+        </li>
+
+        <li>
+          <p><strong>2.</strong> Какой инструмент подходит для коллективной визуализации идей?</p>
+          <label><input type="radio" name="q2" value="a">Padlet</label><br>
+          <label><input type="radio" name="q2" value="b">Zoom (только видеоконференция)</label><br>
+          <label><input type="radio" name="q2" value="c">Текстовый редактор без совместной работы</label>
+          <div class="q-feedback" id="f2"></div>
+        </li>
+
+        <li>
+          <p><strong>3.</strong> Что важнее при составлении мини‑урока?</p>
+          <label><input type="radio" name="q3" value="a">Чётко сформулированная цель и соответствующие активности</label><br>
+          <label><input type="radio" name="q3" value="b">Максимум теории без практики</label><br>
+          <label><input type="radio" name="q3" value="c">Только использование технологий без цели</label>
+          <div class="q-feedback" id="f3"></div>
+        </li>
+
+        <li>
+          <p><strong>4.</strong> Формативное тестирование служит для:</p>
+          <label><input type="radio" name="q4" value="a">Оценивания итогов без корректировок</label><br>
+          <label><input type="radio" name="q4" value="b">Диагностики процесса обучения и корректировки</label><br>
+          <label><input type="radio" name="q4" value="c">Только для выставления баллов в журнал</label>
+          <div class="q-feedback" id="f4"></div>
+        </li>
+
+        <li>
+          <p><strong>5.</strong> Выберите все подходящие методы для активного урока (частичный кредит):</p>
+          <label><input type="checkbox" name="q5" value="a">Парная работа</label><br>
+          <label><input type="checkbox" name="q5" value="b">Монолог учителя 45 минут</label><br>
+          <label><input type="checkbox" name="q5" value="c">Кейсы и проектная работа</label><br>
+          <label><input type="checkbox" name="q5" value="d">Тестирование без обсуждения результатов</label>
+          <div class="q-feedback" id="f5"></div>
+        </li>
+
+        <li>
+          <p><strong>6.</strong> Короткий ответ: Назовите два ключевых преимущества интеграции цифровых инструментов в урок.</p>
+          <input type="text" name="q6" id="q6" placeholder="Введите ответ (два преимущества через запятую)" style="width:100%;padding:8px;margin-top:6px;">
+          <div class="q-feedback" id="f6"></div>
+        </li>
+      </ol>
+
+      <h3>Раздел B — Практические задания (ручная оценка)</h3>
+      <p>Оцените свою работу по рубрике или попросите преподавателя поставить баллы.</p>
+
+      <ol start="7">
+        <li>
+          <p><strong>7. Практическое задание.</strong> Загрузите или вставьте ссылку на свой план мини‑урока и короткую запись (до 5 минут) проведения активности. Затем введите балл по рубрике (0–40).</p>
+          <input type="url" name="q7link" placeholder="Ссылка на план/запись (если есть)" style="width:100%;padding:8px"><br><br>
+          <label>Баллы (0–40): <input type="number" id="q7score" min="0" max="40" value="0" style="width:100px;margin-left:8px;"></label>
+          <div class="q-feedback" id="f7"></div>
+          <details style="margin-top:8px;">
+            <summary>Рубрика (пример)</summary>
+            <ul>
+              <li>Цель и соответствие — 12</li>
+              <li>Активности и вовлечение — 10</li>
+              <li>Интеграция инструментов — 10</li>
+              <li>Ясность и материалы — 8</li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <p><strong>8. Рефлексия и предложения по улучшению.</strong> Напишите кратко (100–200 слов). Введите баллы (0–20) согласно шкале качества аргументации и предложений.</p>
+          <textarea id="q8text" rows="6" style="width:100%;padding:8px" placeholder="Ваша рефлексия..."></textarea>
+          <label style="display:block;margin-top:8px">Баллы (0–20): <input type="number" id="q8score" min="0" max="20" value="0" style="width:100px;margin-left:8px;"></label>
+          <div class="q-feedback" id="f8"></div>
+        </li>
+      </ol>
+
+      <div style="margin-top:18px;">
+        <button class="btn btn-primary" type="submit">Проверить тест</button>
+        <a href="course.html" class="btn btn-secondary" style="margin-left:12px;">Вернуться к курсу</a>
+      </div>
+
+    </form>
+
+    <div id="result-summary" style="margin-top:18px;color:#ddd;"></div>
+
+    <h3 class="gradient-text" style="margin-top:28px">История попыток</h3>
+    <div id="attempts" style="color:#ccc;"></div>
+
+  </div>
+
+  
+</section>
+
+<section id="faq">
+  <h2 class="section-title gradient-text">FAQ</h2>
+  <div class="faq-item"><h4>Как оцениваются открытые задания?</h4><p>Открытые задания оцениваются вручную по рубрике, баллы вводятся в форму и учитываются в итоговом результате.</p></div>
+</section>
+
+<div class="cta">
+  <h2>Начните развитие педагогов уже сегодня</h2>
+  <br>
+  <input placeholder="Email">
+  <button class="btn">Подписаться</button>
+</div>
+
+<footer>© 2026 TeachPro. Все права защищены.</footer>
+
+<script>
+function gradeExam(){
+  // Автоматическая часть
+  let totalAuto = 0;
+  let maxAuto = 30; // q1-q6 total weight
+  // q1
+  const a1 = document.querySelector('input[name="q1"]:checked');
+  if(a1 && a1.value==='b'){ totalAuto += 5; document.getElementById('f1').textContent='Верно (+5)'; } else { document.getElementById('f1').textContent='Неверно. Правильный ответ: Вовлечение учащихся.'; }
+  // q2
+  const a2 = document.querySelector('input[name="q2"]:checked');
+  if(a2 && a2.value==='a'){ totalAuto += 5; document.getElementById('f2').textContent='Верно (+5)'; } else { document.getElementById('f2').textContent='Неверно. Правильный ответ: Padlet.'; }
+  // q3
+  const a3 = document.querySelector('input[name="q3"]:checked');
+  if(a3 && a3.value==='a'){ totalAuto += 5; document.getElementById('f3').textContent='Верно (+5)'; } else { document.getElementById('f3').textContent='Неверно. Правильный ответ: цель + активности.'; }
+  // q4
+  const a4 = document.querySelector('input[name="q4"]:checked');
+  if(a4 && a4.value==='b'){ totalAuto += 5; document.getElementById('f4').textContent='Верно (+5)'; } else { document.getElementById('f4').textContent='Неверно. Формативное — диагностика и корректировка.'; }
+  // q5 (partial)
+  const checks = Array.from(document.querySelectorAll('input[name="q5"]:checked')).map(i=>i.value);
+  let q5score = 0;
+  if(checks.includes('a')) q5score += 3;
+  if(checks.includes('c')) q5score += 3;
+  // penalize incorrect picks slightly
+  if(checks.includes('b')) q5score -= 1;
+  if(checks.includes('d')) q5score -= 1;
+  q5score = Math.max(0, q5score);
+  totalAuto += q5score; document.getElementById('f5').textContent = 'Набрано ' + q5score + ' / 6 (частичный кредит)';
+  // q6 short answer keyword check (max 6)
+  const q6 = (document.getElementById('q6').value || '').toLowerCase();
+  let q6score=0;
+  const keywords = ['вовлечение','доступ','быстрая обратная связь','дифференциация','взаимодействие','интерактив'];
+  keywords.forEach(k => { if(q6.includes(k)) q6score += 1; });
+  q6score = Math.min(6, q6score);
+  totalAuto += q6score; document.getElementById('f6').textContent = 'Найдено ключевых совпадений: ' + q6score + ' / 6';
+  // Автоматический результат
+  // Раздел B: ручные баллы вводит пользователь
+  const q7score = Number(document.getElementById('q7score').value) || 0; // 0-40
+  const q8score = Number(document.getElementById('q8score').value) || 0; // 0-20
+
+  // Нормировка: автоматическая часть / maxAuto -> вес 30%, manual 70% (q7 40, q8 20)
+  const autoPart = (totalAuto / (maxAuto)) * 40; // вес 40 баллов
+  const manualPart = Math.max(0, Math.min(60, q7score + q8score)); // max 60
+  const finalScore = Math.round(autoPart + manualPart);
+
+  // Отзыв
+  const summary = document.getElementById('result-summary');
+  summary.innerHTML = '<strong>Итог:</strong> Авто: ' + totalAuto + ' / ' + maxAuto + ', Ручное: ' + manualPart + ' / 60.<br><strong>Финальный балл:</strong> ' + finalScore + ' / 100.';
+
+  // Сохранить попытку
+  const attempts = JSON.parse(localStorage.getItem('tp_attempts')||'[]');
+  attempts.unshift({time: new Date().toISOString(), score: finalScore, auto: totalAuto, manual: manualPart});
+  localStorage.setItem('tp_attempts', JSON.stringify(attempts.slice(0,10)));
+  renderAttempts();
+}
+
+function renderAttempts(){
+  const list = JSON.parse(localStorage.getItem('tp_attempts')||'[]');
+  const el = document.getElementById('attempts');
+  if(!list.length){ el.textContent='Попыток пока нет.'; return; }
+  el.innerHTML = '<ul style="color:#ccc;">' + list.map(a => '<li>'+ new Date(a.time).toLocaleString() + ' — ' + a.score + ' / 100 (авто: '+a.auto+', ручное: '+a.manual+')</li>').join('') + '</ul>';
+}
+
+// Инициализация
+renderAttempts();
+</script>
+
+</body>
+</html>
